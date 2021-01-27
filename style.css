@@ -20,6 +20,63 @@ body {
     overflow: hidden;
 }
 
+/* nav styles */
+
+.nav {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__logo {
+    font-size: 3rem;
+    margin-left: 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.nav__logo::selection {
+    background-color: transparent;
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    width: 60%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    text-decoration: none;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    color: #001828;
+    font-weight: 700;
+}
+
+.nav__link::before {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #001828;
+    transition: width 0.4s cubic-bezier(0.35, 0.7, 0.35, 1) 0s;
+}
+
+.nav__item:hover > .nav__link::before {
+    width: 100%;
+    /* to make the line come from the left and after hover effect ended it goes to the right */
+    left: 0;
+}
+
 /* header styles */
 
 .header {

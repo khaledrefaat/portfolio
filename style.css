@@ -96,7 +96,7 @@ body {
     right: 0;
     width: 0;
     height: 2px;
-    background-color: #001828;
+    background-color: #7510f7;
     transition: width 0.4s cubic-bezier(0.35, 0.7, 0.35, 1) 0s;
 }
 
@@ -167,17 +167,21 @@ body {
     flex-direction: column;
     width: 100vw;
     padding: 5rem 7rem;
+    /* clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); */
 }
 
 .portfolio__projects {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    grid-gap: 2rem;
+    margin-top: 5rem;
 }
 
 .portfolio__project {
-    width: 40rem;
     position: relative;
     border-radius: 2rem;
+    cursor: pointer;
 }
 
 .portfolio__project img {
@@ -192,14 +196,42 @@ body {
     text-align: center;
     top: 0;
     left: 0;
-    padding: 2rem 3rem 0 3rem;
+    padding: 0 2rem;
     color: #fff;
     background-color: #141c3a;
     border-radius: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: all 0.3s ease-out;
+}
+
+.portfolio__project:hover > figcaption {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
 }
 
 .portfolio__project h1 {
     font-size: 2.5rem;
     word-break: break-word;
     font-weight: 400;
+    padding: 1rem 0;
+    transform: translateY(2rem);
+    transition: transform 0.3s ease-out;
+}
+
+.portfolio__project:hover > figcaption h1 {
+    transform: translateY(0);
+}
+
+.btn-project {
+    background-color: transparent;
+    border: 2px solid #7510f7;
+    color: #fff;
+    position: relative;
+}
+
+.btn-project:hover {
+    background-color: #7510f7;
 }

@@ -10,9 +10,10 @@
 }
 
 html {
-    font-size: 62.5%; /* 10px = 1rem */
+    font-size: 43.75%; /*6px = 1rem*/
     box-sizing: border-box;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -117,6 +118,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .header__photo {
@@ -139,9 +141,7 @@ body {
 }
 
 .header__content {
-    text-align: left;
-    margin-left: 5rem;
-    max-width: 50rem;
+    text-align: center;
 }
 
 .header__content h1 {
@@ -166,8 +166,7 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 100vw;
-    padding: 5rem 7rem;
-    /* clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); */
+    padding: 5rem 2rem;
 }
 
 .heading-2 {
@@ -211,6 +210,10 @@ body {
     pointer-events: none;
     transform: scale(0.95);
     transition: all 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .portfolio__project:hover > figcaption {
@@ -303,5 +306,45 @@ body {
     font-size: 3rem;
 }
 
-.footer h3 {
+/* media queries */
+
+/* 800px */
+@media only screen and(min-width: 50em) {
+    html {
+        font-size: 50%; /* 10px = 1rem */
+    }
+
+    .portfolio {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vw;
+        padding: 5rem 7rem;
+    }
+
+    .portfolio__projects {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+        grid-gap: 2rem;
+        margin-top: 5rem;
+    }
+}
+
+/* 900px */
+@media only screen and(min-width: 56.25em) {
+    html {
+        font-size: 56.25%; /* 10px = 1rem */
+    }
+
+    .header {
+        flex-direction: row;
+    }
+
+    .header__content {
+        text-align: left;
+        margin-left: 10rem;
+        max-width: 50rem;
+    }
 }

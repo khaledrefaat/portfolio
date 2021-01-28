@@ -12,12 +12,40 @@
 html {
     font-size: 62.5%; /* 10px = 1rem */
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 body {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
-    overflow: hidden;
+}
+
+/* btn styles */
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 20rem;
+    text-transform: capitalize;
+    border: 2px solid #7510f7;
+    color: #7510f7;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transform: translateY(0);
+    display: inline-block;
+    transition: all 0.3s ease-out;
+}
+
+.btn::selection {
+    background-color: transparent;
+}
+
+.btn:hover {
+    background-color: #7510f7;
+    color: #fff;
+}
+
+.btn:active {
+    transform: translateY(2px);
 }
 
 /* nav styles */
@@ -50,6 +78,7 @@ body {
 
 .nav__item {
     position: relative;
+    cursor: pointer;
 }
 
 .nav__link {
@@ -127,4 +156,50 @@ body {
     font-weight: 300;
     font-size: 2rem;
     color: #001828;
+}
+
+/* portfolio */
+
+.portfolio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    padding: 5rem 7rem;
+}
+
+.portfolio__projects {
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio__project {
+    width: 40rem;
+    position: relative;
+    border-radius: 2rem;
+}
+
+.portfolio__project img {
+    width: 100%;
+    border-radius: 2rem;
+}
+
+.portfolio__project figcaption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    padding: 2rem 3rem 0 3rem;
+    color: #fff;
+    background-color: #141c3a;
+    border-radius: 2rem;
+}
+
+.portfolio__project h1 {
+    font-size: 2.5rem;
+    word-break: break-word;
+    font-weight: 400;
 }

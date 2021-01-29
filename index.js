@@ -21,5 +21,8 @@ hamburgerNav.addEventListener('click', () => {
 navLink.forEach(cur => {
     cur.addEventListener('click', () => {
         navList.classList.remove('nav__list-visible');
+        hamburgerIcon.classList.remove('fa-times');
+        hamburgerIcon.classList.add('fa-bars');
+        isNavOpen = false;
     });
 });

@@ -19,20 +19,28 @@ html {
 body {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
+    position: relative;
 }
 
 /* nav styles */
 
 .nav {
-    height: 10vh;
+    min-height: 6vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+    background-color: #001828;
+    width: 100vw;
 }
 
 .nav__logo {
     font-size: 3rem;
     margin-left: 2rem;
+    color: #fff;
+    margin-right: auto;
     text-transform: uppercase;
     cursor: pointer;
 }
@@ -47,36 +55,51 @@ body {
     width: 60%;
     align-items: center;
     justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 5rem;
+    display: none;
 }
 
 .nav__item {
     position: relative;
     cursor: pointer;
+    margin: 2rem 0;
 }
 
 .nav__link {
     text-decoration: none;
     font-size: 1.8rem;
     text-transform: capitalize;
-    color: #001828;
+    color: #fff;
     font-weight: 700;
+    transition: color 0.3s ease-out;
 }
 
-.nav__link::before {
-    position: absolute;
-    content: '';
-    bottom: -3px;
-    right: 0;
-    width: 0;
-    height: 2px;
+.nav__link:hover {
+    color: #7510f7;
+}
+/* nav hamburguer styles */
+
+.hamburger__nav {
+    width: 6rem;
+    height: 6rem;
+    position: fixed;
+    top: 0.5rem;
+    right: 7%;
     background-color: #001828;
-    transition: width 0.4s cubic-bezier(0.35, 0.7, 0.35, 1) 0s;
+    border-radius: 50%;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-.nav__item:hover > .nav__link::before {
-    width: 100%;
-    /* to make the line come from the left and after hover effect ended it goes to the right */
-    left: 0;
+.hamburger__nav i {
+    color: #fff;
+    font-size: 3rem;
 }
 
 /* btn styles */
@@ -113,11 +136,10 @@ body {
     height: 90vh;
     width: 100vw;
     background-color: #eee;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
-    padding: 5rem 7rem;
+    padding: 5rem 7rem 5rem 0;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -309,9 +331,64 @@ body {
 /* media queries */
 
 /* 800px */
-@media only screen and(min-width: 50em) {
+
+@media only screen and (min-width: 50em) {
     html {
-        font-size: 50%; /* 10px = 1rem */
+        font-size: 50%; /* 8px = 1rem */
+    }
+
+    .nav {
+        height: 10vh;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        background-color: #fff;
+    }
+
+    .nav__logo {
+        margin-top: 0;
+        color: #001828;
+        margin-right: 0;
+    }
+
+    .nav__list {
+        width: 60%;
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .nav__link {
+        color: #001828;
+    }
+
+    .nav__link:hover {
+        color: inherit;
+    }
+
+    .nav__link::before {
+        position: absolute;
+        content: '';
+        bottom: -3px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: #001828;
+        transition: width 0.4s cubic-bezier(0.35, 0.7, 0.35, 1) 0s;
+    }
+
+    .hamburger__nav {
+        display: none;
+    }
+
+    .nav__item:hover > .nav__link::before {
+        width: 100%;
+        /* to make the line come from the left and after hover effect ended it goes to the right */
+        left: 0;
+    }
+
+    .header {
+        padding: 5rem 7rem;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
     }
 
     .portfolio {
@@ -333,9 +410,9 @@ body {
 }
 
 /* 900px */
-@media only screen and(min-width: 56.25em) {
+@media only screen and (min-width: 56.25em) {
     html {
-        font-size: 56.25%; /* 10px = 1rem */
+        font-size: 62.5%; /* 10px = 1rem */
     }
 
     .header {

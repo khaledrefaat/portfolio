@@ -147,7 +147,7 @@ body {
     height: 90vh;
     width: 100vw;
     background-color: #eee;
-    padding: 10rem 7rem 5rem 0;
+    padding: 15rem 2rem 0 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,6 +160,7 @@ body {
     width: 40rem;
     height: 50rem;
     border-radius: 2rem;
+    margin-bottom: 5rem;
 }
 
 .header__photo img {
@@ -408,6 +409,10 @@ body {
     .header {
         padding: 5rem 7rem;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+    }
+
+    .header__photo {
+        margin-bottom: 0;
     }
 
     .portfolio {

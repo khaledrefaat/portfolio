@@ -170,6 +170,7 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 2rem;
+    box-shadow: 0 1.5rem 3rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 .header__content {
@@ -254,21 +255,21 @@ body {
     transform: scale(1);
 }
 
-.portfolio__project h1 {
+.portfolio__project h2 {
     font-family: 'Libre Baskerville', serif;
     font-size: 2.5rem;
-    word-break: break-word;
     font-weight: 400;
     padding: 1rem 0;
     transform: translateY(1rem);
     transition: transform 0.3s ease-out;
 }
 
-.portfolio__project:hover > figcaption h1 {
+.portfolio__project:hover > figcaption h2 {
     transform: translateY(0);
 }
 
 .btn-project {
+    text-decoration: none;
     background-color: transparent;
     border: 2px solid #7510f7;
     color: #fff;

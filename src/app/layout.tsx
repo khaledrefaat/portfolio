@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Lato, Raleway, Shadows_Into_Light_Two } from 'next/font/google';
 import './globals.css';
+import Script from 'next/script';
 import Header from '@/components/layout/header';
 
 const lato = Lato({
@@ -75,6 +76,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-131X0EQ5WD"
+      />
+      <Script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-131X0EQ5WD');
+        `}
+      </Script>
       <body
         className={`${lato.variable} ${shadowsIntoLightTwo.variable} ${raleway.variable} antialiased relative`}
       >

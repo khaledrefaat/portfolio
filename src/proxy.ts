@@ -17,8 +17,9 @@ export const config = {
      * - api routes
      * - _next/static & _next/image
      * - manifest files (manifest.json, manifest.webmanifest)
+     * - sitemap & robots.txt
      * - all images (png, jpg, jpeg, gif, svg, webp, ico, bmp, tiff, avif, apng)
      */
-    '/((?!api|_next/static|_next/image|favicon\\.ico|manifest\\.(?:json|webmanifest)$|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|bmp|tiff?|avif|apng)$).*)',
+    '/((?!api|_next/static|_next/image|favicon\\.ico|manifest\\.(?:json|webmanifest)$|sitemap\\.xml$|robots\\.txt$|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|bmp|tiff?|avif|apng)$).*)',
   ],
 };

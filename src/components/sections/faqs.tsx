@@ -44,7 +44,10 @@ const faqs = [
 
 export default function FaqsSection() {
   return (
-    <Section containerClassName="flex items-start gap-x-8" id="faqs">
+    <Section
+      containerClassName="flex flex-col md:flex-row items-start gap-8"
+      id="faqs"
+    >
       <div className="shadow-lg border border-gray-300 dark:border-gray-600 rounded-lg flex-9">
         <div className="w-2/3 mx-auto space-y-5 py-8">
           <Image

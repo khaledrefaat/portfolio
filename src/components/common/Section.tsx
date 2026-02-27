@@ -13,7 +13,7 @@ export default function Section({
   ...props
 }: SectionProps) {
   return (
-    <section className={cn('py-30', className)} {...props}>
+    <section className={cn('px-4 py-30', className)} {...props}>
       <div className={cn('mx-auto max-w-5xl', containerClassName)}>
         {children}
       </div>

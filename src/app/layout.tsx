@@ -22,17 +22,18 @@ const raleway = Raleway({
   variable: '--font-raleway',
 });
 
+const description =
+  "I'm a full-stack developer who writes code that doesn't just run, it solves problems";
+
 export const metadata: Metadata = {
   title: 'Khaled Elkady',
-  description:
-    "I'm a full-stack developer who writes code that doesn't just run, it solves problems",
+  description,
   alternates: {
     canonical: 'https://khaledelkady.com',
   },
   openGraph: {
     title: 'Khaled Elkady',
-    description:
-      "I'm a full-stack developer who writes code that doesn't just run, it solves problems",
+    description,
     url: 'https://khaledelkady.com',
     siteName: 'Khaled Elkady',
     images: [
@@ -49,8 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Khaled Elkady',
-    description:
-      "I'm a full-stack developer who writes code that doesn't just run, it solves problems",
+    description,
     images: ['https://khaledelkady.com/me.jpeg'],
   },
   verification: {

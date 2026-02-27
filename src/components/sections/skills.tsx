@@ -35,7 +35,7 @@ export default function skills() {
     >
       <SectionHeader title="My Skills & Stack" className="text-center" />
 
-      <div className="grid grid-cols-[max-content_1fr] w-3xl mx-auto gap-y-6 gap-x-3 bg-secondary-background p-2 rounded-xl pb-4">
+      <div className="grid grid-cols-[max-content_1fr] w-full lg:w-3xl mx-auto gap-y-6 gap-x-3 bg-secondary-background p-2 rounded-xl pb-4">
         <div className="bg-gray-50 dark:bg-gray-900 px-3 py-4 rounded-lg">
           <p className="text-sm font-bold">Categories</p>
         </div>

@@ -24,16 +24,16 @@ export default function hero() {
         </p>
       </div>
 
-      <h2 className="text-5xl max-w-[520px] font-bold mx-auto text-center font-raleway">
+      <h2 className="text-5xl w-full lg:max-w-[600px] font-bold mx-auto text-center font-raleway">
         I Build{' '}
         <span className="font-font-shadows-into-light-two font-medium">
-          Full-Stack
+          Interfaces
         </span>{' '}
-        Stuff That Actually Works!
+        That Actually Feel Good to Use
       </h2>
-      <p className="max-w-[520px] mx-auto text-xl">
-        Debugging, refactoring, and the occasional spark of insight. I bridge
-        the gap between rough ideas and polished software.
+      <p className="w-full text-center lg:text-left lg:max-w-[535px] mx-auto text-xl">
+        Refining interactions and crafting pixel-perfect magic. I bridge the gap
+        between design and seamless user experiences.
       </p>
       <Button className="flex items-center gap-1 mx-auto">
         Contact Me <ChevronRight />

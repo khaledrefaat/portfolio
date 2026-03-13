@@ -71,19 +71,18 @@ export default function ProjectsSection() {
 
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-1 gap-8">
-          {projects.map((project) => (
+          {projects.map(project => (
             <Card
               key={project.id}
               className="overflow-hidden bg-linear-to-br from-foreground to-foreground/90 dark:from-black/90 dark:to-black border-0 text-white hover:shadow-lg transition-shadow"
             >
               <div className="grid md:grid-cols-2 gap-6 p-8 items-center">
                 {/* Image Placeholder */}
-                <div className="flex items-center justify-center h-72">
+                <div className="flex items-center justify-center h-52 md:h-72 relative">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    height={300}
-                    width={300}
+                    fill
                     className="w-full h-full rounded-xl"
                   />
                 </div>
@@ -99,7 +98,7 @@ export default function ProjectsSection() {
                     </p>
                   </div>
                   <ul className="space-y-3">
-                    {project.features.map((feature) => (
+                    {project.features.map(feature => (
                       <li
                         key={feature}
                         className="text-white/80 before:content-['•'] before:mr-2"
@@ -110,7 +109,7 @@ export default function ProjectsSection() {
                   </ul>
                   <div>
                     <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
+                      {project.tech.map(tech => (
                         <span
                           key={tech}
                           className="px-3 py-1 bg-white/10 text-white text-xs rounded border border-white/20"

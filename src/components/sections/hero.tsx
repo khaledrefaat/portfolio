@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Button from '../common/Button';
 import Section from '../common/Section';
 import ChevronRight from '../icons/ChevronRight';
+import Link from 'next/link';
 
 export default function hero() {
   return (
@@ -34,9 +35,11 @@ export default function hero() {
         Refining interactions and crafting pixel-perfect magic. I bridge the gap
         between design and seamless user experiences.
       </p>
-      <Button className="flex items-center gap-1 mx-auto">
-        Contact Me <ChevronRight />
-      </Button>
+      <Link href="#faqs">
+        <Button className="flex items-center gap-1 mx-auto">
+          Contact Me <ChevronRight />
+        </Button>
+      </Link>
     </Section>
   );
 }

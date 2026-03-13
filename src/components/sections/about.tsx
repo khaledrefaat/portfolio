@@ -3,6 +3,7 @@ import Button from '../common/Button';
 import Section from '../common/Section';
 import SectionHeader from '../common/SectionHeader';
 import ChevronRight from '../icons/ChevronRight';
+import Link from 'next/link';
 
 export default function about() {
   return (
@@ -32,9 +33,11 @@ export default function about() {
           pressure. Complex interfaces? Bring 'em on — I eat design challenges
           for breakfast and ship polished frontends by lunch.
         </p>
-        <Button className="flex items-center gap-1 w-max">
-          Contact Me <ChevronRight />
-        </Button>
+        <Link href="#faqs">
+          <Button className="flex items-center gap-1 w-max">
+            Contact Me <ChevronRight />
+          </Button>
+        </Link>
       </div>
     </Section>
   );

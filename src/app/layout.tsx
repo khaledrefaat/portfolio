@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: 'Khaled Elkady',
     images: [
       {
-        url: 'https://khaledelkady.com/me.jpeg',
+        url: 'https://khaledelkady.com/me-2.jpeg',
         width: 1200,
         height: 630,
         alt: 'Khaled Elkady',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Khaled Elkady',
     description,
-    images: ['https://khaledelkady.com/me.jpeg'],
+    images: ['https://khaledelkady.com/me-2.jpeg'],
   },
   verification: {
     google: 'google-site-verification-code',

@@ -19,7 +19,8 @@ export const config = {
      * - manifest files (manifest.json, manifest.webmanifest)
      * - sitemap & robots.txt
      * - all images (png, jpg, jpeg, gif, svg, webp, ico, bmp, tiff, avif, apng)
+     * - pdf files
      */
-    '/((?!api|_next/static|_next/image|favicon\\.ico|manifest\\.(?:json|webmanifest)$|sitemap\\.xml$|robots\\.txt$|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|bmp|tiff?|avif|apng)$).*)',
+    '/((?!api|_next/static|_next/image|favicon\\.ico|manifest\\.(?:json|webmanifest)$|sitemap\\.xml$|robots\\.txt$|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|bmp|tiff?|avif|apng|pdf)$).*)',
   ],
 };

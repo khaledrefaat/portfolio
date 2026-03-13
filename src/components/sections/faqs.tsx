@@ -48,7 +48,7 @@ export default function FaqsSection() {
       containerClassName="flex flex-col md:flex-row items-start gap-8"
       id="faqs"
     >
-      <div className="shadow-lg border border-gray-300 dark:border-gray-600 rounded-lg flex-9">
+      <div className="shadow-md border border-gray-300 dark:border-gray-600 rounded-lg flex-9 mx-auto">
         <div className="w-2/3 mx-auto space-y-5 py-8">
           <Image
             src="/me.jpeg"

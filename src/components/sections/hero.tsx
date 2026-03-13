@@ -8,13 +8,12 @@ export default function hero() {
     <Section className="background pt-10 pb-20" containerClassName="space-y-12">
       <div className="relative w-max px-4 pt-4 mx-auto mt-30">
         <Image
-          className="relative z-10"
-          src="/test.png"
+          className="relative z-10 rounded-lg"
+          src="/me-2.jpeg"
           alt="hero"
           width={180}
           height={180}
         />
-        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-b rounded-xl from-[#FFF8ED] to-[#FFF8EF]" />
       </div>
 
       <div className="py-1 px-3 bg-secondary-background shadow-lg w-max mx-auto flex items-center gap-2 rounded-xl">

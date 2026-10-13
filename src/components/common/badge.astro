@@ -1,20 +1,21 @@
 ---
 interface Props {
-  variant?: 'default' | 'primary';
+  variant?: 'default' | 'primary' | 'featured';
   class?: string;
 }
 
 const { variant = 'default', class: className } = Astro.props;
 
 const variantClasses = {
-  default: 'bg-gray-100 dark:bg-gray-800',
-  primary: 'bg-background',
+  default: 'bg-gray-100 font-medium dark:bg-gray-800',
+  primary: 'bg-background font-medium',
+  featured: 'bg-gray-200 font-semibold dark:bg-gray-700',
 } as const;
 ---
 
 <span
   class:list={[
-    'inline-flex items-center rounded-md px-2 py-1 text-sm font-medium text-secondary-foreground ring-1 ring-inset ring-background/20',
+    'inline-flex items-center rounded-md px-2 py-1 text-sm text-secondary-foreground ring-1 ring-inset ring-background/20',
     variantClasses[variant],
     className,
   ]}

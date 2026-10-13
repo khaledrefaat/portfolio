@@ -22,6 +22,7 @@ const projects = (await getCollection('projects')).sort(
             alt={project.data.title}
             widths={[480, 720, 960]}
             sizes="(min-width: 1056px) 468px, (min-width: 768px) calc(50vw - 60px), calc(100vw - 96px)"
+            quality={70}
             class="h-52 w-full rounded-xl object-cover md:h-72"
           />
 

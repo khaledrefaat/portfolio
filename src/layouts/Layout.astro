@@ -62,15 +62,29 @@ const ogImage = site ? new URL('/me-2.jpeg', site) : '/me-2.jpeg';
     <Font cssVariable="--font-shadows-into-light-two" preload />
     <Font cssVariable="--font-raleway" preload />
 
-    <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-131X0EQ5WD"></script>
+    <!-- Google tag (gtag.js) — deferred until first interaction so it never competes with page load -->
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      const GA_ID = 'G-131X0EQ5WD';
+      const { signal } = new AbortController();
+
+      function loadGtag() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(script);
       }
-      gtag('js', new Date());
-      gtag('config', 'G-131X0EQ5WD');
+
+      // Any of these counts as engagement; loadGtag runs once, abort() removes the rest
+      for (const event of ['scroll', 'pointerdown', 'pointermove', 'keydown', 'touchstart', 'wheel']) {
+        addEventListener(event, loadGtag, { once: true, passive: true, signal });
+      }
     </script>
   </head>
   <body class="relative antialiased">

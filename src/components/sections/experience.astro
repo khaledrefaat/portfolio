@@ -1,53 +1,94 @@
 ---
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import award from '../../assets/award.png';
 import websight from '../../assets/websight.svg';
 import Section from '../common/section.astro';
 import SectionHeader from '../common/section-header.astro';
+import CompanyBadge from '../common/company-badge.astro';
 
-const responsibilities = [
-  'Developed responsive web applications using React.js, Next.js, Zod, TypeScript achieving seamless user experiences across devices.',
-  'Collaborated with designers to create intuitive, accessible UI with Tailwind CSS, ensuring pixel-perfect implementation and smooth navigation.',
-  'Optimized frontend performance by refining rendering techniques, reducing load times, and enhancing scalability.',
-  'Engaged in Agile workflows, contributing to sprint planning, stand-ups, and code reviews using Git for version control.',
-  'Created detailed frontend component and style guides, improving team collaboration and onboarding efficiency.',
+type Company = {
+  name: string;
+  type: string;
+  href?: string;
+  logo?: ImageMetadata;
+};
+
+type ExperienceItem = {
+  role: string;
+  period: string;
+  bullets: string[];
+  award?: boolean;
+  company: Company;
+};
+
+const experiences: ExperienceItem[] = [
+  {
+    role: 'Full-Stack Developer (Freelance)',
+    period: 'Feb 2026 - Present',
+    company: {
+      name: 'Freelance',
+      type: 'Independent',
+    },
+    bullets: [
+      'Built Mshtl, a multi-tenant nursery management and accounting SaaS with live paying customers, end to end: from database design (PostgreSQL, Drizzle ORM) to VPS deployment.',
+      'Designed a ledger-based accounting architecture that derives balances from transaction history, with monthly and yearly financial reports and sales analytics.',
+      'Set up Docker/Nginx/SSL deployment, a GitHub Actions CI/CD pipeline, and automated PostgreSQL backups to Google Drive via rclone.',
+      'Implementing technical SEO and AI-discovery improvements for NEUN Gaming (Next.js, Payload CMS): site-wide search, metadata, sitemap/robots, JSON-LD structured data, and IndexNow, plus Google Tag Manager, GA4, Google Ads conversions, and Consent Mode v2 — all configurable from the Payload CMS admin.',
+    ],
+  },
+  {
+    role: 'Full-Stack Developer (Remote)',
+    period: 'Mar 2024 - Jan 2026',
+    award: true,
+    company: {
+      name: 'Websight',
+      type: 'Digital agency, Kuwait',
+      href: 'https://websight.kw/',
+      logo: websight,
+    },
+    bullets: [
+      'Optimized multiple legacy applications to production-ready standards, raising Lighthouse performance scores from 62 to 98 through code splitting, lazy loading, and bundle optimization.',
+      'Built in-house replacements for paid third-party services: Cash Clinic (an interactive video player from scratch) and CR8 (a canvas-based PSD mockup editor).',
+      'Refactored legacy codebases and delivered accessible interfaces with Tailwind CSS alongside designers and product teams, fixing critical bugs and improving stability across client projects.',
+    ],
+  },
 ];
 ---
 
 <Section id="experience" class="bg-secondary-background" containerClass="space-y-8">
   <SectionHeader title="Where I've Worked" class="text-center" />
 
-  <div
-    class="relative mx-auto w-full space-y-6 rounded-lg border border-gray-200 shadow-lg dark:border-gray-600"
-  >
-    <div class="px-8 py-4">
-      <h3 class="text-xl font-semibold font-display">Full-Stack Developer (Remotely)</h3>
-      <p>Feb 2024 - Jan 2026</p>
-      <ul class="mt-6 space-y-4">
-        {
-          responsibilities.map((item) => (
-            <li class="before:mr-2 before:content-['•'] text-black/80 dark:text-white/80">
-              {item}
-            </li>
-          ))
-        }
-      </ul>
-      <Image src={award} alt="Award" width={24} height={24} class="absolute top-4 right-4" />
-    </div>
-
-    <div class="flex w-full items-center gap-3 bg-gray-100 px-8 py-4 dark:bg-gray-600">
-      <a
-        href="https://websight.kw/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center gap-3"
+  {
+    experiences.map(({ role, period, bullets, award: hasAward, company }) => (
+      <div
+        class="relative mx-auto w-full space-y-6 overflow-hidden rounded-lg border border-gray-200 shadow-lg dark:border-gray-600"
       >
-        <Image src={websight} alt="Websight logo" width={50} height={50} class="rounded-full" />
-        <div class="flex flex-col">
-          <span class="font-display dark:text-white">Websight</span>
-          <span class="text-sm dark:text-white/80">Software house</span>
+        <div class="px-8 py-4">
+          <h3 class="text-xl font-semibold font-display">{role}</h3>
+          <p>{period}</p>
+          <ul class="mt-6 space-y-4">
+            {bullets.map((bullet) => (
+              <li class="before:mr-2 before:content-['•'] text-black/80 dark:text-white/80">
+                {bullet}
+              </li>
+            ))}
+          </ul>
+          {hasAward && (
+            <Image src={award} alt="Award" width={24} height={24} class="absolute top-4 right-4" />
+          )}
         </div>
-      </a>
-    </div>
-  </div>
+
+        <div class="flex w-full items-center gap-3 bg-gray-100 px-8 py-4 dark:bg-gray-600">
+          {company.href ? (
+            <a href={company.href} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3">
+              <CompanyBadge company={company} />
+            </a>
+          ) : (
+            <CompanyBadge company={company} />
+          )}
+        </div>
+      </div>
+    ))
+  }
 </Section>

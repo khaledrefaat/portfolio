@@ -1,0 +1,76 @@
+---
+import PlusMinusIcon from '../icons/plus-minus-icon.astro';
+
+interface AccordionItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: AccordionItem[];
+  allowMultiple?: boolean;
+}
+
+const { items, allowMultiple = false } = Astro.props;
+---
+
+<div class="w-full space-y-4" data-allow-multiple={String(allowMultiple)}>
+  {
+    items.map((item) => (
+      <div
+        class="group overflow-hidden rounded-lg border border-gray-200 transition-colors hover:border-gray-300 dark:border-gray-600"
+        data-expanded="false"
+      >
+        <button
+          type="button"
+          aria-expanded="false"
+          aria-controls={`content-${item.id}`}
+          class="flex w-full items-center justify-between px-6 py-4 text-left font-medium text-gray-900 transition-colors hover:bg-gray-50 dark:text-white dark:hover:text-black"
+        >
+          <span>{item.question}</span>
+          <PlusMinusIcon verticalClass="transition-opacity duration-300 group-data-[expanded=true]:opacity-0" />
+        </button>
+
+        <!-- Collapsed via grid-template-rows: 0fr -> 1fr, which animates to
+             the content's natural height without measuring it in JS -->
+        <div
+          id={`content-${item.id}`}
+          class="grid grid-rows-[0fr] transition-all duration-300 ease-in-out group-data-[expanded=true]:grid-rows-[1fr]"
+        >
+          <div class="min-h-0 overflow-hidden">
+            <div class="border-t border-gray-200 bg-gray-50 px-6 py-4 text-gray-700">
+              {item.answer}
+            </div>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const roots = document.querySelectorAll<HTMLElement>('[data-allow-multiple]');
+
+  roots.forEach((root) => {
+    const allowMultiple = root.dataset.allowMultiple === 'true';
+    const items = [...root.querySelectorAll<HTMLElement>('[data-expanded]')];
+
+    const setItem = (item: HTMLElement, expanded: boolean) => {
+      item.dataset.expanded = String(expanded);
+      item.querySelector('button')?.setAttribute('aria-expanded', String(expanded));
+    };
+
+    items.forEach((item) => {
+      item.querySelector('button')?.addEventListener('click', () => {
+        const willExpand = item.dataset.expanded !== 'true';
+
+        if (willExpand && !allowMultiple) {
+          items.forEach((other) => setItem(other, false));
+        }
+
+        setItem(item, willExpand);
+      });
+    });
+  });
+</script>

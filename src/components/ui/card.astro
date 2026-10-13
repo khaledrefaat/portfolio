@@ -1,0 +1,17 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  class?: string;
+}
+
+const { class: className, ...props } = Astro.props;
+---
+
+<div
+  class:list={[
+    'rounded-xl border border-border bg-secondary-background text-foreground shadow-sm',
+    className,
+  ]}
+  {...props}
+>
+  <slot />
+</div>

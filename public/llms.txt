@@ -1,0 +1,25 @@
+# Khaled Refaat Elkady
+
+> Full-stack developer (frontend-heavy) building web apps and e-commerce platforms with React, Next.js, TypeScript, and Node.js. I bridge the gap between rough ideas and polished software — code that doesn't just run, it solves problems.
+
+## Sections
+
+- [About](https://www.khaledrefaat.dev/#about): A bit about me (& my code) — building beautiful, functional software that scales and doesn't break under pressure.
+- [Skills](https://www.khaledrefaat.dev/#skills): My skills & stack — JavaScript, TypeScript, React, Next.js, Tailwind CSS, Framer Motion, Node.js, Express.js, PostgreSQL, MongoDB, Redis, Drizzle, Prisma, Docker, and AWS.
+- [Projects](https://www.khaledrefaat.dev/#projects): My personal playground — interactive video platform and designer marketplace projects, described below.
+- [Experience](https://www.khaledrefaat.dev/#experience): Where I've worked — Full-Stack Developer (Remote) at Websight, Feb 2024 – Jan 2026.
+- [FAQs & Contact](https://www.khaledrefaat.dev/#faqs): Got a question? Let's chat — contact details and answers to common questions about how I work.
+
+## Projects
+
+- [Cash Clinic — Interactive Video Platform](https://www.khaledrefaat.dev/#projects): Financial-education platform built around a fully custom interactive video learning experience — custom video player with sectioned navigation, embedded questions and notes, saved progress, downloadable resources, drag-and-drop layout editing, and multi-language support. Built with Next.js, TypeScript, Zustand, dnd-kit, Framer Motion, next-intl, Zod, React Hook Form, and Tailwind CSS.
+- [Cr8 — Designer Marketplace Platform](https://www.khaledrefaat.dev/#projects): Marketplace where designers upload, customize, and sell their products — similar to Redbubble. Features a custom mockup editor using 2D canvas and PSD smart-object replacement for realistic product previews, designer store management, a customer-facing shop, and an analytics dashboard. Built with Next.js, TypeScript, Zustand, TanStack Query, ag-psd, next-intl, Zod, React Hook Form, and Tailwind CSS.
+
+## Contact
+
+- [Email](mailto:khaledrefaat08@gmail.com): Send me an email.
+- [WhatsApp](https://wa.me/201062715774): Text me on WhatsApp.
+- [Résumé (PDF)](https://www.khaledrefaat.dev/Khaled_Fullstack_Developer.pdf): My full-stack developer résumé.
+
+<!-- TODO: add GitHub profile link -->
+<!-- TODO: add LinkedIn profile link -->

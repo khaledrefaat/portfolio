@@ -1,0 +1,106 @@
+---
+import Button from '../common/button.astro';
+
+const links = [
+  { label: 'About', href: '#about' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Contact', href: '#faqs' },
+  { label: 'Projects', href: '#projects' },
+];
+---
+
+<header
+  id="site-header"
+  data-menu-open="false"
+  class="group fixed md:absolute top-0 md:top-4 left-1/2 -translate-x-1/2 z-50 mx-auto flex w-full flex-col justify-between items-center gap-4 lg:gap-0 rounded-2xl bg-secondary-background p-4 shadow-lg lg:flex-row md:w-[95%] xl:w-5xl"
+>
+  <!-- Top section: logo, resume (desktop) and hamburger -->
+  <div class="flex w-full items-center justify-between">
+    <Button variant="secondary">Elkady</Button>
+
+    <!-- Desktop navigation & resume (visible on large screens) -->
+    <div class="hidden items-center gap-x-8 lg:flex">
+      <nav>
+        <ul class="flex items-center justify-center gap-x-8 text-xl text-gray-500">
+          {
+            links.map((link) => (
+              <li>
+                <a href={link.href} aria-label={link.label}>
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <Button href="/Khaled_Fullstack_Developer.pdf" class="cursor-pointer">
+        My resume
+      </Button>
+    </div>
+
+    <!-- Hamburger (mobile/tablet) -->
+    <button
+      id="menu-toggle"
+      type="button"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+    >
+      <span
+        class="block h-0.5 w-6 bg-gray-700 transition-transform duration-300 group-data-[menu-open=true]:translate-y-2 group-data-[menu-open=true]:rotate-45"
+      />
+      <span
+        class="block h-0.5 w-6 bg-gray-700 transition-opacity duration-300 group-data-[menu-open=true]:opacity-0"
+      />
+      <span
+        class="block h-0.5 w-6 bg-gray-700 transition-transform duration-300 group-data-[menu-open=true]:-translate-y-2 group-data-[menu-open=true]:-rotate-45"
+      />
+    </button>
+  </div>
+
+  <!-- Mobile navigation (toggled via data-menu-open) -->
+  <div
+    id="mobile-menu"
+    class="hidden w-full flex-col items-center gap-4 pb-2 group-data-[menu-open=true]:flex lg:hidden"
+  >
+    <nav class="w-full">
+      <ul class="flex flex-col items-center justify-center gap-y-4 text-lg text-gray-500">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} aria-label={link.label}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <Button href="/Khaled_Fullstack_Developer.pdf" class="cursor-pointer">
+      My resume
+    </Button>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('menu-toggle');
+
+  if (header && toggle) {
+    const setMenu = (open: boolean) => {
+      header.dataset.menuOpen = String(open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    toggle.addEventListener('click', () => {
+      setMenu(header.dataset.menuOpen !== 'true');
+    });
+
+    // Close the menu after tapping one of its links
+    header.querySelectorAll('#mobile-menu a').forEach((link) => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+  }
+</script>

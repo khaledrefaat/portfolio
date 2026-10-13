@@ -1,0 +1,26 @@
+---
+// Reconstructed from usage — the original PlusMinusIcon source wasn't provided.
+// `verticalClass` lets a parent drive the plus→minus transition via CSS
+// (e.g. a group-data-[expanded=true]:* variant).
+interface Props {
+  isPlus?: boolean;
+  class?: string;
+  verticalClass?: string;
+}
+
+const { isPlus = true, class: className = 'size-5', verticalClass } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  class={className}
+  aria-hidden="true"
+>
+  <line x1="5" y1="12" x2="19" y2="12"></line>
+  {isPlus && <line x1="12" y1="5" x2="12" y2="19" class={verticalClass}></line>}
+</svg>

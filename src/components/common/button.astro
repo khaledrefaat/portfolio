@@ -1,0 +1,42 @@
+---
+interface Props
+  extends astroHTML.JSX.ButtonHTMLAttributes,
+    astroHTML.JSX.AnchorHTMLAttributes {
+  size?: 'large' | 'medium';
+  variant?: 'primary' | 'secondary';
+  href?: string;
+}
+
+const { size = 'medium', variant = 'primary', href, class: className, ...props } = Astro.props;
+
+const sizeClasses = {
+  large: 'px-6 py-3 text-lg',
+  medium: 'px-4 py-2 text-base',
+} as const;
+
+const variantClasses = {
+  primary: 'bg-foreground hover:bg-gray-900',
+  secondary: 'bg-secondary hover:bg-gray-700',
+} as const;
+
+const classes = [
+  'font-semibold text-secondary-background rounded-xl transition-all duration-200',
+  'shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] active:shadow-[0_5px_15px_rgba(0,0,0,0.3)] active:scale-[0.98]',
+  'dark:hover:text-white',
+  sizeClasses[size],
+  variantClasses[variant],
+  className,
+];
+---
+
+{
+  href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" class:list={classes} {...props}>
+      <slot />
+    </a>
+  ) : (
+    <button class:list={classes} {...props}>
+      <slot />
+    </button>
+  )
+}

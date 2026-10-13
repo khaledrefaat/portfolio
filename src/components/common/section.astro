@@ -1,0 +1,13 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  containerClass?: string;
+}
+
+const { class: className, containerClass, ...props } = Astro.props;
+---
+
+<section class:list={['px-4 py-30', className]} {...props}>
+  <div class:list={['mx-auto max-w-5xl', containerClass]}>
+    <slot />
+  </div>
+</section>

@@ -1,0 +1,26 @@
+{
+  "order": 1,
+  "title": "Cash Clinic - Interactive Video Platform",
+  "description": "Cash Clinic is a financial education platform built around a fully custom interactive video learning experience.",
+  "features": [
+    "Custom video player with sectioned navigation",
+    "Embedded questions, notes, and interactive elements",
+    "Video tracking with saved progress",
+    "Navigate between videos or jump to specific timestamps",
+    "Downloadable resources integrated into the player",
+    "Custom drag-and-drop to reposition elements on the page",
+    "Multi-language support"
+  ],
+  "tech": [
+    "Next.js",
+    "TypeScript",
+    "Zustand",
+    "dnd-kit",
+    "Framer Motion",
+    "next-intl",
+    "Zod",
+    "React Hook Form",
+    "Tailwind CSS"
+  ],
+  "image": "./cash-clinic.png"
+}

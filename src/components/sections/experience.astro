@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import award from '../../assets/award.png';
+import websight from '../../assets/websight.svg';
+import Section from '../common/section.astro';
+import SectionHeader from '../common/section-header.astro';
+
+const responsibilities = [
+  'Developed responsive web applications using React.js, Next.js, Zod, TypeScript achieving seamless user experiences across devices.',
+  'Collaborated with designers to create intuitive, accessible UI with Tailwind CSS, ensuring pixel-perfect implementation and smooth navigation.',
+  'Optimized frontend performance by refining rendering techniques, reducing load times, and enhancing scalability.',
+  'Engaged in Agile workflows, contributing to sprint planning, stand-ups, and code reviews using Git for version control.',
+  'Created detailed frontend component and style guides, improving team collaboration and onboarding efficiency.',
+];
+---
+
+<Section id="experience" class="bg-secondary-background" containerClass="space-y-8">
+  <SectionHeader title="Where I've Worked" class="text-center" />
+
+  <div
+    class="relative mx-auto w-full space-y-6 rounded-lg border border-gray-200 shadow-lg dark:border-gray-600"
+  >
+    <div class="px-8 py-4">
+      <h3 class="text-xl font-semibold font-display">Full-Stack Developer (Remotely)</h3>
+      <p>Feb 2024 - Jan 2026</p>
+      <ul class="mt-6 space-y-4">
+        {
+          responsibilities.map((item) => (
+            <li class="before:mr-2 before:content-['•'] text-black/80 dark:text-white/80">
+              {item}
+            </li>
+          ))
+        }
+      </ul>
+      <Image src={award} alt="Award" width={24} height={24} class="absolute top-4 right-4" />
+    </div>
+
+    <div class="flex w-full items-center gap-3 bg-gray-100 px-8 py-4 dark:bg-gray-600">
+      <a
+        href="https://websight.kw/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3"
+      >
+        <Image src={websight} alt="Websight logo" width={50} height={50} class="rounded-full" />
+        <div class="flex flex-col">
+          <span class="font-display dark:text-white">Websight</span>
+          <span class="text-sm dark:text-white/80">Software house</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</Section>

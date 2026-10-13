@@ -1,13 +1,18 @@
 ---
-interface Props
-  extends astroHTML.JSX.ButtonHTMLAttributes,
-    astroHTML.JSX.AnchorHTMLAttributes {
+// Extending both ButtonHTMLAttributes and AnchorHTMLAttributes conflicts on
+// `type`, so build on the shared base and add the anchor-specific props.
+interface Props extends astroHTML.JSX.HTMLAttributes {
   size?: 'large' | 'medium';
   variant?: 'primary' | 'secondary';
   href?: string;
+  target?: string;
+  rel?: string;
 }
 
 const { size = 'medium', variant = 'primary', href, class: className, ...props } = Astro.props;
+
+// Only external links should open in a new tab; in-page anchors must not.
+const isExternal = href?.startsWith('http');
 
 const sizeClasses = {
   large: 'px-6 py-3 text-lg',
@@ -31,7 +36,13 @@ const classes = [
 
 {
   href ? (
-    <a href={href} target="_blank" rel="noopener noreferrer" class:list={classes} {...props}>
+    <a
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      class:list={classes}
+      {...props}
+    >
       <slot />
     </a>
   ) : (

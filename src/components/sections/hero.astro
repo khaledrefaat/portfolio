@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../../assets/me-2.jpeg';
+import Button from '../common/button.astro';
+import Section from '../common/section.astro';
+import ChevronRight from '../icons/chevron-right.astro';
+---
+
+<Section class="background pt-10 pb-20" containerClass="space-y-12">
+  <div class="relative mx-auto mt-30 w-max px-4 pt-4">
+    <Image
+      src={portrait}
+      alt="Portrait of Khaled Refaat Elkady"
+      width={180}
+      height={180}
+      loading="eager"
+      fetchpriority="high"
+      class="relative z-10 rounded-lg"
+    />
+  </div>
+
+  <div
+    class="mx-auto flex w-max items-center gap-2 rounded-xl bg-secondary-background px-3 py-1 shadow-lg"
+  >
+    <p class="rounded-lg bg-red-100 p-1 text-red-500">Hey!</p>
+    <p class="text-primary"><span class="text-gray-400">I'm</span> Khaled Refaat Elkady</p>
+  </div>
+
+  <h1
+    class="mx-auto w-full text-center text-5xl font-bold font-display lg:max-w-150"
+  >
+    I Build <span class="font-handwriting font-medium">Full-Stack</span> Stuff That Actually Works!
+  </h1>
+  <p class="mx-auto w-full text-center text-xl lg:max-w-133.75 lg:text-left">
+    Debugging, refactoring, and the occasional spark of insight. I bridge the gap between rough
+    ideas and polished software.
+  </p>
+  <Button href="#faqs" class="mx-auto max-w-max flex items-center gap-1">
+    Contact Me <ChevronRight />
+  </Button>
+</Section>

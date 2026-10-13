@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Section from '../common/section.astro';
+import SectionHeader from '../common/section-header.astro';
+import Card from '../ui/card.astro';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Section id="projects" class="bg-secondary-background" containerClass="space-y-8">
+  <SectionHeader title="My Personal Playground" class="text-center" />
+
+  {
+    projects.map((project) => (
+      <Card class="overflow-hidden border-0 bg-linear-to-br from-foreground to-foreground/90 text-white transition-shadow hover:shadow-lg dark:from-black/90 dark:to-black">
+        <div class="grid items-center gap-6 p-8 md:grid-cols-2">
+          <Image
+            src={project.data.image}
+            alt={project.data.title}
+            widths={[480, 720, 960]}
+            sizes="(min-width: 1056px) 468px, (min-width: 768px) calc(50vw - 60px), calc(100vw - 96px)"
+            class="h-52 w-full rounded-xl object-cover md:h-72"
+          />
+
+          <div class="flex flex-col justify-between gap-8">
+            <div>
+              <h3 class="text-4xl font-bold text-white font-display">
+                {project.data.title}
+              </h3>
+              <p class="mt-4 leading-relaxed text-white/80">{project.data.description}</p>
+            </div>
+            <ul class="space-y-3">
+              {project.data.features.map((feature) => (
+                <li class="before:mr-2 before:content-['•'] text-white/80">{feature}</li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-2">
+              {project.data.tech.map((tech) => (
+                <span class="rounded border border-white/20 bg-white/10 px-3 py-1 text-xs text-white">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Card>
+    ))
+  }
+</Section>

@@ -1,0 +1,26 @@
+{
+  "order": 2,
+  "title": "Cr8 - Designer Marketplace Platform",
+  "description": "Cr8 is a marketplace platform for designers to upload, customize, and sell their products — similar to Redbubble. It features a custom mockup editor that uses 2D canvas and PSD smart object replacement to preview designs on products realistically.",
+  "features": [
+    "Upload and manage design products",
+    "Custom mockup editor using 2D canvas",
+    "PSD smart object replacement for realistic product previews",
+    "Designer store/profile management",
+    "Customer-facing shop to browse and purchase designs",
+    "Dashboard with analytics",
+    "Multi-language support"
+  ],
+  "tech": [
+    "Next.js",
+    "TypeScript",
+    "Zustand",
+    "TanStack Query",
+    "ag-psd",
+    "next-intl",
+    "Zod",
+    "React Hook Form",
+    "Tailwind CSS"
+  ],
+  "image": "./cr8.png"
+}

@@ -1,0 +1,60 @@
+---
+import Badge from '../common/badge.astro';
+import Section from '../common/section.astro';
+import SectionHeader from '../common/section-header.astro';
+
+const categories = [
+  {
+    name: 'Languages',
+    skills: ['JavaScript', 'TypeScript'],
+  },
+  {
+    name: 'Frontend',
+    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+  },
+  {
+    name: 'Backend',
+    skills: ['Node.js', 'Express.js'],
+  },
+  {
+    name: 'Database',
+    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Drizzle', 'Prisma', 'Mongoose'],
+  },
+  {
+    name: 'Tools & Tech',
+    skills: ['Git', 'GitHub', 'Docker', 'AWS', 'Vercel'],
+  },
+];
+---
+
+<Section id="skills" class="bg-background" containerClass="space-y-8">
+  <SectionHeader title="My Skills & Stack" class="text-center" />
+
+  <div
+    class="mx-auto grid w-full grid-cols-[max-content_1fr] gap-x-3 gap-y-6 rounded-xl bg-secondary-background p-2 pb-4 lg:w-3xl"
+  >
+    <div class="rounded-lg bg-gray-50 px-3 py-4 dark:bg-gray-900">
+      <p class="text-sm font-bold">Categories</p>
+    </div>
+    <div class="rounded-lg bg-gray-50 px-3 py-4 dark:bg-gray-900">
+      <p class="text-sm font-bold">Tools & Tech</p>
+    </div>
+
+    {
+      categories.map((category, index) => (
+        <Fragment>
+          <p class="p-1 text-xl text-gray-500 dark:text-gray-400">{category.name}</p>
+          <div class="flex flex-wrap gap-2 p-1">
+            {category.skills.map((skill) => (
+              <Badge variant={index === 0 ? 'primary' : 'default'}>{skill}</Badge>
+            ))}
+          </div>
+
+          {index !== categories.length - 1 && (
+            <div class="col-span-2 h-px w-full bg-gray-200 dark:bg-gray-500" />
+          )}
+        </Fragment>
+      ))
+    }
+  </div>
+</Section>

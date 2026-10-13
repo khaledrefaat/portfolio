@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import study from '../../assets/study.jpg';
+import Button from '../common/button.astro';
+import Section from '../common/section.astro';
+import SectionHeader from '../common/section-header.astro';
+import ChevronRight from '../icons/chevron-right.astro';
+---
+
+<Section
+  id="about"
+  class="bg-secondary-background"
+  containerClass="grid gap-12 md:grid-cols-2"
+>
+  <Image
+    src={study}
+    alt="Khaled studying at his desk"
+    widths={[360, 480, 664]}
+    sizes="(min-width: 1056px) 488px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 32px)"
+    class="h-125 w-full rounded-xl object-cover"
+  />
+  <div class="flex flex-col justify-center space-y-6">
+    <SectionHeader title="A Bit About Me" subTitle="(& My Code)" />
+    <p class="text-lg">
+      I'm a full-stack developer obsessed with building beautiful, functional software. I love
+      solving complex problems and creating elegant solutions that scale.
+    </p>
+    <p class="text-lg">
+      I like building things that scale, make sense, and don't break under pressure. Complex
+      challenges? Bring 'em on—I eat problems for breakfast and deliver solutions by lunch.
+    </p>
+    <Button href="#faqs" class="flex w-max items-center gap-1">
+      Contact Me <ChevronRight />
+    </Button>
+  </div>
+</Section>
